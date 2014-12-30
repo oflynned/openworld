@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <allegro.h>
 
 class Player{
@@ -8,6 +11,8 @@ class Player{
 		void Init();
 		void Update();
 		void Draw(BITMAP *Buffer);
+		
+		void debugValues(BITMAP *Buffer);
 		
 		void Controls();
 		void SetPosition();
@@ -28,3 +33,5 @@ class Player{
 		bool Jump; //if true, can jump; if false, not on ground
 		bool Platform; //activates gravity if true
 };
+
+#endif

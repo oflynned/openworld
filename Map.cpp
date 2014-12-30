@@ -1,5 +1,4 @@
 #include "Map.h"
-#include "Global.h"
 
 Map::Map(){
 	
@@ -11,7 +10,8 @@ Map::~Map(){
 
 void Map::Init(){
 	loadCounterX = loadCounterY = 0;
-	Map::LoadMap("Map1.txt");
+	//Map::LoadMap("Map1.txt");
+	Map::LoadMap("map_fallvel.txt");
 }
 
 void Map::Update(){

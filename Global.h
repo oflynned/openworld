@@ -3,3 +3,5 @@
 #define BufferWidth 1600
 #define BufferHeight 800
 #define BlockSize 40
+
+#include <allegro.h>

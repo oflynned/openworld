@@ -37,6 +37,14 @@ void Player::Draw(BITMAP *Buffer){
 	rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
 }
 
+void Player::debugValues(BITMAP *Buffer){
+	
+	//debug
+	//jumping y-vel
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 16, makecol(255, 0, 0), -1, "velx: %d", velx);
+}
+
 void Player::Controls(){
 	if(key[KEY_RIGHT]){
 		if(x < (BufferWidth-width)){
@@ -79,3 +87,4 @@ void Player::SetPosition(){
 	x2=x+width;
 	y2=y+height;
 }
+

@@ -10,7 +10,8 @@ Collision::~Collision(){
 
 void Collision::Init(){
 	loadCounterX=loadCounterY=0;
-	Collision::LoadCollisionMap("colmap1.txt");
+	//Collision::LoadCollisionMap("colmap1.txt");
+	Collision::LoadCollisionMap("col_fallvel.txt");
 }
 
 void Collision::Update(BITMAP *Buffer, Player &player){

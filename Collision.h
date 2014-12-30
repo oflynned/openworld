@@ -1,10 +1,10 @@
 #ifndef COLLISION_H
 #define COLLISION_H
 
-#include <allegro.h>
 #include <fstream>
 #include <sstream>
 #include "Global.h"
+#include "Player.h"
 
 using namespace std;
 

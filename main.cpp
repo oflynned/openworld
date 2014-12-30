@@ -44,8 +44,10 @@ int main(){
 		//draw
 		map.Draw(Buffer);
 		player.Draw(Buffer);
+		player.debugValues(Buffer);
 		camera.Draw(Buffer);
 		clear_bitmap(Buffer);
+		
 	}
 	return 0;
 }

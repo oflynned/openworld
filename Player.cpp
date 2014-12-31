@@ -20,12 +20,14 @@ void Player::Init(){
 	speed = 2;
 	jumpspeed = -15;
 	gravity=1;
-	width=10;
-	height=10;
+	width = height = 40;
 	Jump=false;
 	Platform=false;
 	hDir=0;
 	vDir=2;
+	
+	//images
+	
 }
 
 void Player::Update(){
@@ -34,11 +36,14 @@ void Player::Update(){
 }
 
 void Player::Draw(BITMAP *Buffer){
-	rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
+	//player sprite
+	//rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
+	
+	BITMAP *p_r = load_bitmap("Resources/Images/Characters/p_r.bmp",NULL);
+	draw_sprite(Buffer, p_r, x, y);
 }
 
 void Player::debugValues(BITMAP *Buffer){
-	
 	//debug
 	//jumping y-vel
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);

@@ -46,9 +46,10 @@ int main(){
 		player.Draw(Buffer);
 		player.debugValues(Buffer);
 		camera.Draw(Buffer);
-		clear_bitmap(Buffer);
-		
+		clear_bitmap(Buffer);		
 	}
+	//clear resources
+	//destroy_bitmap();
 	return 0;
 }
 END_OF_MAIN()

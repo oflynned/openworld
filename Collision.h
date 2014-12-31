@@ -22,6 +22,8 @@ class Collision{
 		void PlatformCollision(BITMAP *Buffer, Player &player);
 		
 	private:
+		int width;
+		int height;
 		int loadCounterX;
 		int loadCounterY;
 		int mapSizeX;

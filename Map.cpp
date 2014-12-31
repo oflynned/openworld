@@ -10,8 +10,8 @@ Map::~Map(){
 
 void Map::Init(){
 	loadCounterX = loadCounterY = 0;
-	//Map::LoadMap("Map1.txt");
-	Map::LoadMap("map_fallvel.txt");
+	Map::LoadMap("Resources/Maps/Map1.txt");
+	
 }
 
 void Map::Update(){
@@ -19,16 +19,33 @@ void Map::Update(){
 }
 
 void Map::Draw(BITMAP *Buffer){
+	BITMAP *block = load_bitmap("Resources/Images/Environment/Blocks/Block.bmp",NULL);	
+	BITMAP *g_l = load_bitmap("Resources/Images/Environment/Blocks/g_l.bmp",NULL);	
+	BITMAP *g_s = load_bitmap("Resources/Images/Environment/Blocks/g_s.bmp",NULL);	
+	BITMAP *g_r = load_bitmap("Resources/Images/Environment/Blocks/g_r.bmp",NULL);	
+	
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
+			//sky
 			if(MapFile[i][j]==1){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 			}
+			//ground
 			else if (MapFile[i][j]==2){
-				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,0));
+				draw_sprite(Buffer, g_s, (i*BlockSize), (j*BlockSize));
 			}
+			//platforms
 			else if(MapFile[i][j]==3){
-				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(255,0,255));
+				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
+				draw_sprite(Buffer, g_s, (i*BlockSize), (j*BlockSize));
+			}
+			else if(MapFile[i][j]==4){
+				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
+				draw_sprite(Buffer, g_l, (i*BlockSize), (j*BlockSize));
+			}
+			else if(MapFile[i][j]==5){
+				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
+				draw_sprite(Buffer, g_r, (i*BlockSize), (j*BlockSize));
 			}
 		}
 	}

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Global.h"
+#include "Map.h"
 
 Player::Player(){
 	
@@ -43,13 +44,14 @@ void Player::Draw(BITMAP *Buffer){
 	rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
 }
 
-void Player::debugValues(BITMAP *Buffer){
+void Player::debugValues(BITMAP *Buffer, Map &map){
 	//debug
 	//movement values
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 16, makecol(255, 0, 0), -1, "velx: %d", velx);
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 22, makecol(255, 0, 0), -1, "velx: %d", velx);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 12, makecol(255, 0, 0), -1, "x: %d", x);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 10, makecol(255, 0, 0), -1, "y: %d", y);
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 7, makecol(255, 0, 0), -1, "level: %d", map.getLevel());	
 }
 
 void Player::Controls(){	

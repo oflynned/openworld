@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <allegro.h>
+#include "map.h"
 
 class Player{
 	public:
@@ -12,7 +13,7 @@ class Player{
 		void Update();
 		void Draw(BITMAP *Buffer);
 		
-		void debugValues(BITMAP *Buffer);
+		void debugValues(BITMAP *Buffer,Map &map);
 		
 		void Controls();
 		void SetPosition();

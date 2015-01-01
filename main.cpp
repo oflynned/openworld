@@ -44,7 +44,7 @@ int main(){
 		//draw
 		map.Draw(Buffer);
 		player.Draw(Buffer);
-		player.debugValues(Buffer);
+		player.debugValues(Buffer,map);
 		camera.Draw(Buffer);
 		clear_bitmap(Buffer);		
 	}

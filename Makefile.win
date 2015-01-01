@@ -5,11 +5,11 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = Platformer_private.res
-OBJ      = Camera.o Collision.o main.o Map.o Player.o $(RES)
-LINKOBJ  = Camera.o Collision.o main.o Map.o Player.o $(RES)
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib" -static-libstdc++ -static-libgcc -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound -g3
-INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
-CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++" -I"C:/Program Files (x86)/Dev-Cpp/include"
+OBJ      = Camera.o Collision.o main.o Map.o Player.o Environment.o $(RES)
+LINKOBJ  = Camera.o Collision.o main.o Map.o Player.o Environment.o $(RES)
+LIBS     = -L"F:/Applications/Dev-Cpp/MinGW32/lib" -L"F:/Applications/Dev-Cpp/MinGW32/mingw32/lib" -L"F:/Applications/Dev-Cpp/lib" -static-libstdc++ -static-libgcc -mwindows -lalleg_s -lkernel32 -luser32 -lgdi32 -lcomdlg32 -lole32 -ldinput -lddraw -ldxguid -lwinmm -ldsound -g3
+INCS     = -I"F:/Applications/Dev-Cpp/MinGW32/include" -I"F:/Applications/Dev-Cpp/MinGW32/mingw32/include" -I"F:/Applications/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
+CXXINCS  = -I"F:/Applications/Dev-Cpp/MinGW32/include" -I"F:/Applications/Dev-Cpp/MinGW32/mingw32/include" -I"F:/Applications/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"F:/Applications/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
 BIN      = Platformer.exe
 CXXFLAGS = $(CXXINCS) -g3 -DALLEGRO_STATICLINK
 CFLAGS   = $(INCS) -g3 -DALLEGRO_STATICLINK
@@ -39,6 +39,9 @@ Map.o: Map.cpp
 
 Player.o: Player.cpp
 	$(CPP) -c Player.cpp -o Player.o $(CXXFLAGS)
+
+Environment.o: Environment.cpp
+	$(CPP) -c Environment.cpp -o Environment.o $(CXXFLAGS)
 
 Platformer_private.res: Platformer_private.rc 
 	$(WINDRES) -i Platformer_private.rc --input-format=rc -o Platformer_private.res -O coff 

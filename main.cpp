@@ -51,6 +51,7 @@ int main(){
 	//clear resources
 	destroy_bitmap(player.p_r);
 	destroy_bitmap(player.p_l);
+	
 	return 0;
 }
 END_OF_MAIN()

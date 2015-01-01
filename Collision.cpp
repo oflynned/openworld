@@ -13,7 +13,7 @@ void Collision::Init(){
 	height = 10;
 	loadCounterX=loadCounterY=0;
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap1.txt",0);
-	Collision::LoadCollisionMap("Resources/Collision Maps/col_fallvel.txt",1);
+	Collision::LoadCollisionMap("Resources/Collision Maps/colmap2.txt",1);
 	}
 
 void Collision::Update(BITMAP *Buffer, Player &player, Map &map){
@@ -89,7 +89,7 @@ void Collision::PlatformCollision(BITMAP *Buffer, Player &player, Map &map){
 void Collision::LevelEnd(Player &player,Map &map){
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
-			if(ColMapFile[map.getLevel()][i][j]==1){
+			if(ColMapFile[map.getLevel()][i][j]==2){
 				if(player.x>i*BlockSize+BlockSize||player.y>j*BlockSize+BlockSize||player.x2<i*BlockSize||player.y2<j*BlockSize){
 					//no collision
 				}

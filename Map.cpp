@@ -10,8 +10,9 @@ Map::~Map(){
 
 void Map::Init(){
 	loadCounterX = loadCounterY = 0;
-	Map::LoadMap("Resources/Maps/Map1.txt",0);	//level 1
-	Map::LoadMap("Resources/Maps/map_fallvel.txt",1);	//level 2
+	level = 0;
+	Map::LoadMap("Resources/Maps/map1.txt",0);	//level 1
+	Map::LoadMap("Resources/Maps/map2.txt",1);	//level 2
 }
 
 void Map::Update(){
@@ -70,9 +71,7 @@ void Map::LoadMap(const char*filename,int level){
 		}
 		loadCounterX = loadCounterY = 0;
 	} //file is opened
-	else{
-		allegro_message("Map file couldn't be found!");
-	}//file not opened
+	else allegro_message("Map file couldn't be found!");
 }
 
 int Map::getLevel(){

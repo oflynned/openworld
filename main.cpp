@@ -14,7 +14,7 @@ int main(){
 	set_gfx_mode(GFX_AUTODETECT_WINDOWED,ScreenWidth,ScreenHeight,0,0);
 	LOCK_VARIABLE(counter);
 	LOCK_FUNCTION(Increment);
-	install_int_ex(Increment,BPS_TO_TIMER(60));
+	install_int_ex(Increment,BPS_TO_TIMER(10));
 	
 	BITMAP *Buffer = create_bitmap(BufferWidth,BufferHeight);
 	

@@ -15,10 +15,9 @@ void Player::Init(){
 	p_l = load_bitmap("Resources/Images/Characters/p_l.bmp",NULL);
 	
 	x = (ScreenWidth-width)/8;
-	//x = (BufferWidth-BlockSize);
 	y = (ScreenHeight-height)/2;
-	x = origX;
-	y = origY;
+	origX = x;
+	origY = y;
 	x2=x+width;
 	y2=y+height;
 	velx = 0;
@@ -49,6 +48,8 @@ void Player::debugValues(BITMAP *Buffer){
 	//movement values
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 16, makecol(255, 0, 0), -1, "velx: %d", velx);
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 12, makecol(255, 0, 0), -1, "x: %d", x);
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 10, makecol(255, 0, 0), -1, "y: %d", y);
 }
 
 void Player::Controls(){	

@@ -10,6 +10,10 @@ Player::~Player(){
 }
 
 void Player::Init(){
+	//sprites
+	p_r = load_bitmap("Resources/Images/Characters/p_r.bmp",NULL);
+	p_l = load_bitmap("Resources/Images/Characters/p_l.bmp",NULL);
+	
 	x = (ScreenWidth-width)/8;
 	//x = (BufferWidth-BlockSize);
 	y = (ScreenHeight-height)/2;
@@ -20,14 +24,12 @@ void Player::Init(){
 	speed = 2;
 	jumpspeed = -15;
 	gravity=1;
-	width = height = 40;
+	width = 10;
+	height = 10;
 	Jump=false;
 	Platform=false;
 	hDir=0;
-	vDir=2;
-	
-	//images
-	
+	vDir=2;	
 }
 
 void Player::Update(){
@@ -37,21 +39,19 @@ void Player::Update(){
 
 void Player::Draw(BITMAP *Buffer){
 	//player sprite
-	//rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
-	
-	BITMAP *p_r = load_bitmap("Resources/Images/Characters/p_r.bmp",NULL);
-	draw_sprite(Buffer, p_r, x, y);
+	rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
 }
 
 void Player::debugValues(BITMAP *Buffer){
 	//debug
-	//jumping y-vel
+	//movement values
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 16, makecol(255, 0, 0), -1, "velx: %d", velx);
 }
 
-void Player::Controls(){
+void Player::Controls(){	
 	if(key[KEY_RIGHT]){
+		//draw_sprite(Buffer, p_r, x, y);
 		if(x < (BufferWidth-width)){
 			velx = speed;
 			hDir = 1;
@@ -59,6 +59,7 @@ void Player::Controls(){
 		else velx = 0;
 	}
 	else if(key[KEY_LEFT]){
+	//	draw_sprite(Buffer, p_l, x, y);
 		if(x>0){
 			velx = -speed;
 			hDir = 2;

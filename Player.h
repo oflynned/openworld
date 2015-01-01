@@ -17,6 +17,9 @@ class Player{
 		void Controls();
 		void SetPosition();
 		
+		BITMAP *p_r;
+		BITMAP *p_l;
+				
 		int width;
 		int height;
 		int x;

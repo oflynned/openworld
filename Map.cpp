@@ -47,6 +47,7 @@ void Map::Draw(BITMAP *Buffer){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 				draw_sprite(Buffer, g_r, (i*BlockSize), (j*BlockSize));
 			}
+			
 		}
 	}
 }

@@ -9,7 +9,8 @@ Collision::~Collision(){
 }
 
 void Collision::Init(){
-	width = height = 40;
+	width = 10; 
+	height = 10;
 	loadCounterX=loadCounterY=0;
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap1.txt");
 }

@@ -10,8 +10,8 @@ Map::~Map(){
 
 void Map::Init(){
 	loadCounterX = loadCounterY = 0;
-	Map::LoadMap("Resources/Maps/Map1.txt");
-	
+	Map::LoadMap("Resources/Maps/Map1.txt",0);	//level 1
+	Map::LoadMap("Resources/Maps/map_fallvel.txt",1);	//level 2
 }
 
 void Map::Update(){
@@ -27,37 +27,40 @@ void Map::Draw(BITMAP *Buffer){
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
 			//sky
-			if(MapFile[i][j]==1){
+			if(MapFile[level][i][j]==1){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 			}
 			//ground
-			else if (MapFile[i][j]==2){
+			else if (MapFile[level][i][j]==2){
 				draw_sprite(Buffer, g_s, (i*BlockSize), (j*BlockSize));
 			}
 			//platforms
-			else if(MapFile[i][j]==3){
+			else if(MapFile[level][i][j]==3){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 				draw_sprite(Buffer, g_s, (i*BlockSize), (j*BlockSize));
 			}
-			else if(MapFile[i][j]==4){
+			else if(MapFile[level][i][j]==4){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 				draw_sprite(Buffer, g_l, (i*BlockSize), (j*BlockSize));
 			}
-			else if(MapFile[i][j]==5){
+			else if(MapFile[level][i][j]==5){
 				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(0,255,255));
 				draw_sprite(Buffer, g_r, (i*BlockSize), (j*BlockSize));
 			}
-			
+			//level changer
+			else if(MapFile[level][i][j]==6){
+				rectfill(Buffer, i*BlockSize, j*BlockSize, i*BlockSize + BlockSize, j*BlockSize + BlockSize,makecol(255,255,0));
+			}
 		}
 	}
 }
 
-void Map::LoadMap(const char*filename){
+void Map::LoadMap(const char*filename,int level){
 	ifstream openfile(filename);
 	if(openfile.is_open()){
 		openfile >> mapSizeX >> mapSizeY;
 		while(!openfile.eof()){
-			openfile >> MapFile[loadCounterX][loadCounterY];
+			openfile >> MapFile[level][loadCounterX][loadCounterY];
 			loadCounterX++;
 			
 			if (loadCounterX>=mapSizeX){
@@ -70,4 +73,12 @@ void Map::LoadMap(const char*filename){
 	else{
 		allegro_message("Map file couldn't be found!");
 	}//file not opened
+}
+
+int Map::getLevel(){
+	return level;
+}
+
+void Map::setLevel(int value){
+	level = value;
 }

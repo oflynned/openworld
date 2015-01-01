@@ -37,7 +37,7 @@ int main(){
 			//update
 			map.Update();
 			player.Update();
-			collision.Update(Buffer, player);
+			collision.Update(Buffer, player, map);
 			camera.Update(player.x,player.y);
 			counter--;
 		}

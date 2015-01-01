@@ -17,6 +17,8 @@ void Player::Init(){
 	x = (ScreenWidth-width)/8;
 	//x = (BufferWidth-BlockSize);
 	y = (ScreenHeight-height)/2;
+	x = origX;
+	y = origY;
 	x2=x+width;
 	y2=y+height;
 	velx = 0;

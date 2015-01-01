@@ -26,6 +26,8 @@ class Player{
 		int y;
 		int x2;
 		int y2;
+		int origX;
+		int origY;
 		int velx;
 		int vely;
 		int speed;

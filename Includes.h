@@ -1,4 +1,3 @@
-#include <allegro.h>
 #include "Player.h"
 #include "Global.h"
 #include "Camera.h"

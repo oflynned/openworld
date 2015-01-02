@@ -18,7 +18,7 @@ void Collision::Init(){
 
 void Collision::Update(BITMAP *Buffer, Player &player, Map &map){
 	Collision::PlatformCollision(Buffer, player, map);
-	Collision::LevelEnd(player,map);
+	Collision::LevelEnd(Buffer,player,map);
 }
 
 void Collision::Draw(BITMAP *Buffer){
@@ -86,7 +86,7 @@ void Collision::PlatformCollision(BITMAP *Buffer, Player &player, Map &map){
 	}
 }
 
-void Collision::LevelEnd(Player &player,Map &map){
+void Collision::LevelEnd(BITMAP *Buffer, Player &player,Map &map){
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
 			if(ColMapFile[map.getLevel()][i][j]==2){
@@ -103,6 +103,7 @@ void Collision::LevelEnd(Player &player,Map &map){
 					player.x=player.origX;
 					player.y=player.origY;
 					clear_to_color(screen,makecol(0,0,0));
+					textprintf_centre_ex(Buffer, font, ScreenWidth / 2, ScreenHeight / 2, makecol(255, 0, 0), -1, "Changing %d",BlockSize);
 					rest(1000);
 				}
 			}

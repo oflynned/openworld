@@ -51,7 +51,7 @@ void Player::debugValues(BITMAP *Buffer, Map &map){
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 22, makecol(255, 0, 0), -1, "velx: %d", velx);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 12, makecol(255, 0, 0), -1, "x: %d", x);
 	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 10, makecol(255, 0, 0), -1, "y: %d", y);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 7, makecol(255, 0, 0), -1, "level: %d", map.getLevel());	
+	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 7, makecol(255, 0, 0), -1, "level: %d", (map.getLevel()+1));	
 }
 
 void Player::Controls(){	

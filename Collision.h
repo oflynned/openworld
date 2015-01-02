@@ -19,7 +19,7 @@ class Collision{
 		void Draw(BITMAP *Buffer);
 		
 		void LoadCollisionMap(const char*filename,int level);
-		void LevelEnd(Player &player, Map &map);
+		void LevelEnd(BITMAP *Buffer, Player &player, Map &map);
 		void PlatformCollision(BITMAP *Buffer, Player &player, Map &map);
 		
 	private:

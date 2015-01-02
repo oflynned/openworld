@@ -6,8 +6,15 @@ class Environment{
 		Environment();
 		~Environment();
 		
-	private:
+		//images
+		BITMAP *background;
+		BITMAP *pipe;
+		BITMAP *cloud;
+		BITMAP *character;
 		
+		//functions
+		void Draw();
+		void Init();
 };
 
 #endif

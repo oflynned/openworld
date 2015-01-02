@@ -103,8 +103,7 @@ void Collision::LevelEnd(BITMAP *Buffer, Player &player,Map &map){
 					player.x=player.origX;
 					player.y=player.origY;
 					clear_to_color(screen,makecol(0,0,0));
-					textprintf_centre_ex(Buffer, font, ScreenWidth / 2, ScreenHeight / 2, makecol(255, 0, 0), -1, "Changing %d",BlockSize);
-					rest(1000);
+					rest(150);
 				}
 			}
 		}

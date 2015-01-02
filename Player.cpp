@@ -10,13 +10,9 @@ Player::~Player(){
 	
 }
 
-void Player::Init(){
-	//sprites
-	p_r = load_bitmap("Resources/Images/Characters/p_r.bmp",NULL);
-	p_l = load_bitmap("Resources/Images/Characters/p_l.bmp",NULL);
-	
-	x = (ScreenWidth-width)/8;
-	y = (ScreenHeight-height)/2;
+void Player::Init(){	
+	x = 120;
+	y = (ScreenHeight)/2;
 	origX = x;
 	origY = y;
 	x2=x+width;
@@ -42,16 +38,18 @@ void Player::Update(){
 void Player::Draw(BITMAP *Buffer){
 	//player sprite
 	rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
+	
 }
 
-void Player::debugValues(BITMAP *Buffer, Map &map){
+void Player::debugValues(BITMAP *Buffer, Map &map, Player &player){
 	//debug
 	//movement values
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 32, makecol(255, 0, 0), -1, "vely: %d", vely);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 22, makecol(255, 0, 0), -1, "velx: %d", velx);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 12, makecol(255, 0, 0), -1, "x: %d", x);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 10, makecol(255, 0, 0), -1, "y: %d", y);
-	textprintf_centre_ex(Buffer, font, ScreenWidth / 16, ScreenHeight / 7, makecol(255, 0, 0), -1, "level: %d", (map.getLevel()+1));	
+	rect(Buffer, player.x - 110,player.y - 150,player.x - 30,player.y - 85,makecol(255, 0, 0));
+	textprintf_ex(Buffer, font, player.x - 100, player.y - 140, makecol(255, 0, 0), -1, "dx: %d", velx);
+	textprintf_ex(Buffer, font, player.x - 100, player.y - 130, makecol(255, 0, 0), -1, "dy: %d", (vely*-1));
+	textprintf_ex(Buffer, font, player.x - 100, player.y - 120, makecol(255, 0, 0), -1, "x: %d", x);
+	textprintf_ex(Buffer, font, player.x - 100, player.y - 110, makecol(255, 0, 0), -1, "y: %d", y);
+	textprintf_ex(Buffer, font, player.x - 100, player.y - 100, makecol(255, 0, 0), -1, "level: %d", (map.getLevel()+1));	
 }
 
 void Player::Controls(){	

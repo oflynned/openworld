@@ -13,13 +13,10 @@ class Player{
 		void Update();
 		void Draw(BITMAP *Buffer);
 		
-		void debugValues(BITMAP *Buffer,Map &map);
+		void debugValues(BITMAP *Buffer,Map &map, Player &player);
 		
 		void Controls();
 		void SetPosition();
-		
-		BITMAP *p_r;
-		BITMAP *p_l;
 				
 		int width;
 		int height;

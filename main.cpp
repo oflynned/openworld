@@ -22,11 +22,13 @@ int main(){
 	Camera camera;
 	Map map;
 	Collision collision;
+	Environment environment;
 	
 	player.Init();
 	camera.Init();
 	map.Init();
 	collision.Init();
+	environment.Init();
 	
 	while(!done){
 		while(counter>0){
@@ -44,13 +46,14 @@ int main(){
 		//draw
 		map.Draw(Buffer);
 		player.Draw(Buffer);
-		player.debugValues(Buffer,map);
+		player.debugValues(Buffer,map,player);
 		camera.Draw(Buffer);
+		//gets to here
+		environment.Draw(Buffer,environment.cloud);
 		clear_bitmap(Buffer);		
 	}
 	//clear resources
-	destroy_bitmap(player.p_r);
-	destroy_bitmap(player.p_l);
+	destroy_bitmap(environment.cloud);
 	
 	return 0;
 }

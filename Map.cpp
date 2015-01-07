@@ -13,18 +13,19 @@ void Map::Init(){
 	level = 0;
 	Map::LoadMap("Resources/Maps/map1.txt",0);	//level 1
 	Map::LoadMap("Resources/Maps/map2.txt",1);	//level 2
+	
+	//sprites	
+	block = load_bitmap("Resources/Images/Environment/Blocks/Block.bmp",NULL);	
+	g_l = load_bitmap("Resources/Images/Environment/Blocks/g_l.bmp",NULL);	
+	g_s = load_bitmap("Resources/Images/Environment/Blocks/g_s.bmp",NULL);	
+	g_r = load_bitmap("Resources/Images/Environment/Blocks/g_r.bmp",NULL);
 }
 
 void Map::Update(){
 	
 }
 
-void Map::Draw(BITMAP *Buffer){
-	BITMAP *block = load_bitmap("Resources/Images/Environment/Blocks/Block.bmp",NULL);	
-	BITMAP *g_l = load_bitmap("Resources/Images/Environment/Blocks/g_l.bmp",NULL);	
-	BITMAP *g_s = load_bitmap("Resources/Images/Environment/Blocks/g_s.bmp",NULL);	
-	BITMAP *g_r = load_bitmap("Resources/Images/Environment/Blocks/g_r.bmp",NULL);	
-	
+void Map::Draw(BITMAP *Buffer){	
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
 			//sky

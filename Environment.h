@@ -6,8 +6,16 @@ class Environment{
 		Environment();
 		~Environment();
 		
-	private:
+		BITMAP *cloud;
+		BITMAP *mountains;
 		
+		int x;
+		int y;
+		
+		void Init();
+		void Update();
+		void Draw(BITMAP *Buffer);
+		void SetPosition();
 };
 
 #endif

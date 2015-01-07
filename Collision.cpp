@@ -9,8 +9,8 @@ Collision::~Collision(){
 }
 
 void Collision::Init(){
-	width = 10; 
-	height = 10;
+	width = 15; 
+	height = 28;
 	loadCounterX=loadCounterY=0;
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap1.txt",0);
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap2.txt",1);
@@ -103,7 +103,7 @@ void Collision::LevelEnd(Player &player,Map &map){
 					player.x=player.origX;
 					player.y=player.origY;
 					clear_to_color(screen,makecol(0,0,0));
-					rest(1000);
+					rest(150);
 				}
 			}
 		}

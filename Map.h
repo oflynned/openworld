@@ -19,6 +19,12 @@ class Map{
 		int getLevel();
 		void setLevel(int value);
 		
+		//sprites
+		BITMAP *block;	
+		BITMAP *g_l;	
+		BITMAP *g_s;	
+		BITMAP *g_r;
+		
 	private:
 		int loadCounterX, loadCounterY;
 		int mapSizeX, mapSizeY;

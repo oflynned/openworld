@@ -11,6 +11,11 @@ class Environment{
 		int x;
 		int y;
 		
+		int cloudNo;
+		
+		int origX;
+		int origY;
+		
 		void Init();
 		void Update();
 		void Draw(BITMAP *Buffer);

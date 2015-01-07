@@ -16,8 +16,10 @@ class Map{
 		void Draw(BITMAP *Buffer);
 		
 		void LoadMap(const char*filename,int level);
-		int getLevel();
+		int getLevel(int level);
 		void setLevel(int value);
+		
+		int level;
 		
 		//sprites
 		BITMAP *block;	
@@ -29,7 +31,7 @@ class Map{
 		int loadCounterX, loadCounterY;
 		int mapSizeX, mapSizeY;
 		int MapFile[2][100][100];
-		int level;
+		
 };
 
 #endif

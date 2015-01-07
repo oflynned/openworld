@@ -50,13 +50,15 @@ int main(){
 		player.Draw(Buffer);
 		player.debugValues(Buffer,map,player);
 		camera.Draw(Buffer);
-		//gets to here
-		environment.Draw(Buffer,environment.cloud);
 		clear_bitmap(Buffer);		
 	}
 	//clear resources
 	
 	//map
+	destroy_bitmap(map.block);
+	destroy_bitmap(map.g_r);
+	destroy_bitmap(map.g_s);
+	destroy_bitmap(map.g_l);
 	
 	//environment
 	destroy_bitmap(environment.cloud);
@@ -64,6 +66,9 @@ int main(){
 	//player
 	destroy_bitmap(player.p_r);
 	destroy_bitmap(player.p_l);
+	
+	//buffer
+	destroy_bitmap(Buffer);
 	
 	return 0;
 }

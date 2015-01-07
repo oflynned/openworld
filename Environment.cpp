@@ -1,6 +1,7 @@
 #include "Global.h"
 #include "Environment.h"
 #include "Player.h"
+#include "Map.h"
 #include <cstdlib> 
 #include <ctime>
 
@@ -15,7 +16,6 @@ Environment::~Environment(){
 void Environment::Init(){	
 	//sprites
 	cloud = load_bitmap("Resources/Images/Environment/Background/clouds_noblur.bmp",NULL);
-	//mountain = load_bitmap("Resources/Images/Environment/Background/clouds_noblur.bmp",NULL);
 	
 	//random location generation
 	srand((unsigned)time(0));	

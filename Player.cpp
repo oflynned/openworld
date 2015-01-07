@@ -42,7 +42,6 @@ void Player::Update(){
 
 void Player::Draw(BITMAP *Buffer){
 	//player sprite
-	//rectfill(Buffer,x,y,x+width,y+height,makecol(255,0,0));
 	if (hDir == 1){
 		draw_sprite(Buffer,p_r,x,y);
 	}
@@ -94,7 +93,7 @@ void Player::SetPosition(){
 	if(vely>=0){
 		vDir=2;
 	}
-	if(Platform==false){
+	if(!Platform){
 		vely+=gravity;
 	}
 	else{

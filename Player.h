@@ -9,6 +9,9 @@ class Player{
 		Player();
 		~Player();
 		
+		BITMAP *p_r;
+		BITMAP *p_l;
+		
 		void Init();
 		void Update();
 		void Draw(BITMAP *Buffer);

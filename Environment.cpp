@@ -1,7 +1,5 @@
 #include "Global.h"
 #include "Environment.h"
-#include "Player.h"
-#include "Map.h"
 #include <cstdlib> 
 #include <ctime>
 

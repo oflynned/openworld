@@ -38,17 +38,19 @@ int main(){
 			}
 			//update
 			map.Update();
-			environment.Update();
 			player.Update();
+			environment.Update();
 			collision.Update(Buffer, player, map);
 			camera.Update(player.x,player.y);
 			counter--;
 		}
 		//draw
-		map.Draw(Buffer);
-		environment.Draw(Buffer);
+		map.drawScene(Buffer);
 		player.Draw(Buffer);
 		player.debugValues(Buffer,map,player);
+		map.drawObjects(Buffer);
+		map.drawBlocks(Buffer);
+		environment.Draw(Buffer);
 		camera.Draw(Buffer);
 		clear_bitmap(Buffer);		
 	}
@@ -59,6 +61,7 @@ int main(){
 	destroy_bitmap(map.g_r);
 	destroy_bitmap(map.g_s);
 	destroy_bitmap(map.g_l);
+	destroy_bitmap(map.pipe);
 	
 	//environment
 	destroy_bitmap(environment.cloud);

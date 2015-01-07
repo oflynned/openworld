@@ -13,13 +13,19 @@ class Map{
 		
 		void Init();
 		void Update();
-		void Draw(BITMAP *Buffer);
+		void drawScene(BITMAP *Buffer);
+		void drawObjects(BITMAP *Buffer);
+		void drawBlocks(BITMAP *Buffer);
 		
 		void LoadMap(const char*filename,int level);
-		int getLevel(int level);
+		int getLevel();
 		void setLevel(int value);
 		
-		int level;
+		int getX();
+		int getY();
+		
+		int x;
+		int y;
 		
 		//sprites
 		BITMAP *block;	
@@ -27,11 +33,13 @@ class Map{
 		BITMAP *g_s;	
 		BITMAP *g_r;
 		
+		BITMAP *pipe;
+		
 	private:
 		int loadCounterX, loadCounterY;
 		int mapSizeX, mapSizeY;
 		int MapFile[2][100][100];
-		
+		int level;
 };
 
 #endif

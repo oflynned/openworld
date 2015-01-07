@@ -38,6 +38,7 @@ int main(){
 			}
 			//update
 			map.Update();
+			environment.Update();
 			player.Update();
 			collision.Update(Buffer, player, map);
 			camera.Update(player.x,player.y);
@@ -45,6 +46,7 @@ int main(){
 		}
 		//draw
 		map.Draw(Buffer);
+		environment.Draw(Buffer);
 		player.Draw(Buffer);
 		player.debugValues(Buffer,map,player);
 		camera.Draw(Buffer);
@@ -53,7 +55,15 @@ int main(){
 		clear_bitmap(Buffer);		
 	}
 	//clear resources
+	
+	//map
+	
+	//environment
 	destroy_bitmap(environment.cloud);
+	
+	//player
+	destroy_bitmap(player.p_r);
+	destroy_bitmap(player.p_l);
 	
 	return 0;
 }

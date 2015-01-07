@@ -8,22 +8,16 @@ class Environment{
 		Environment();
 		~Environment();
 		
-		//images
 		BITMAP *cloud;
-		BITMAP *background;
-		BITMAP *pipe;
+		BITMAP *mountains;
 		
-		BITMAP *character_r[3];
-		BITMAP *character_l[3];
-		BITMAP *character_s[2];
-		BITMAP *enemy_r[3];
-		BITMAP *enemy_l[3];
-		BITMAP *enemy_s[2];
-	
-		//functions
+		int x;
+		int y;
+		
 		void Init();
 		void Update();
-		void Draw(BITMAP *Buffer,BITMAP *cloud);
+		void Draw(BITMAP *Buffer);
+		void SetPosition();
 };
 
 #endif

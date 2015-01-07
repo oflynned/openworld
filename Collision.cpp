@@ -9,8 +9,8 @@ Collision::~Collision(){
 }
 
 void Collision::Init(){
-	width = 10; 
-	height = 10;
+	width = 15; 
+	height = 28;
 	loadCounterX=loadCounterY=0;
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap1.txt",0);
 	Collision::LoadCollisionMap("Resources/Collision Maps/colmap2.txt",1);
@@ -18,7 +18,7 @@ void Collision::Init(){
 
 void Collision::Update(BITMAP *Buffer, Player &player, Map &map){
 	Collision::PlatformCollision(Buffer, player, map);
-	Collision::LevelEnd(Buffer,player,map);
+	Collision::LevelEnd(player,map);
 }
 
 void Collision::Draw(BITMAP *Buffer){
@@ -86,7 +86,7 @@ void Collision::PlatformCollision(BITMAP *Buffer, Player &player, Map &map){
 	}
 }
 
-void Collision::LevelEnd(BITMAP *Buffer, Player &player,Map &map){
+void Collision::LevelEnd(Player &player,Map &map){
 	for(int i=0;i<mapSizeX;i++){
 		for(int j=0;j<mapSizeY;j++){
 			if(ColMapFile[map.getLevel()][i][j]==2){
